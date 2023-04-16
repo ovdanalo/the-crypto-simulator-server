@@ -1,0 +1,48 @@
+{
+  "name": "the_crypto_simulator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "knex:migrate:make": "npx knex --knexfile src/database/knexfile.ts migrate:make MIGRATION_NAME",
+    "knex:seed:make": "npx knex --knexfile src/database/knexfile.ts seed:make MIGRATION_NAME",
+    "knex:seed:run": "npx knex --knexfile src/database/knexfile.ts seed:run",
+    "knex:migrate:latest": "npx knex --knexfile src/database/knexfile.ts migrate:latest",
+    "knex:migrate:rollback": "npx knex --knexfile src/database/knexfile.ts migrate:rollback",
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "npm run knex:migrate:latest && concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+    "test": "jest --verbose --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jsonwebtoken": "^9.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^9.0.0",
+    "knex": "^2.3.0",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.14",
+    "@types/express-session": "^1.17.7",
+    "@types/jest": "^29.2.4",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^18.11.14",
+    "@types/passport": "^1.0.12",
+    "@types/passport-github2": "^1.2.5",
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20",
+    "passport-github2": "^0.1.12",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
+  }
+}
